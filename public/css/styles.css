@@ -1,0 +1,294 @@
+/* Semi resets */
+
+html,
+body,
+main {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
+}
+
+/* Actually doing stuff */
+
+* {
+  cursor: url(../img/cursor.png) 5 5, auto;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+/* Navbar */
+
+nav {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin: 0;
+  transition: 2s;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav li:last-of-type,
+nav li:last-of-type a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+main section ~ nav li:last-child a {
+  width: 100%;
+  height: 100%;
+  visibility: visible;
+  display: flex;
+  height: 50px;
+  width: 50px;
+  background-color: #bbb;
+  border-radius: 50%;
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+  position: absolute;
+}
+
+main section:target ~ nav {
+  transition: 2s;
+}
+
+main section:nth-of-type(1):target ~ nav {
+  margin-top: 50%;
+  margin-right: 50%;
+}
+main section:nth-of-type(2):target ~ nav {
+  margin-top: 50%;
+}
+main section:nth-of-type(3):target ~ nav {
+  margin-right: 100%;
+}
+main section:nth-of-type(4):target ~ nav {
+  margin-left: 100%;
+}
+main section:nth-of-type(5):target ~ nav {
+  margin-bottom: 50%;
+}
+
+/* Standard section stuff  */
+
+section {
+  visibility: hidden;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+section:target {
+  visibility: visible;
+  display: flex;
+  transition: 2s;
+  position: absolute;
+}
+
+main section:first-child:not(:target) {
+  visibility: visible;
+  display: flex;
+}
+
+/* First section */
+
+main section:nth-of-type(1) {
+  transition: 2s;
+  background-color: white;
+}
+
+main section:target:nth-of-type(2) {
+  background-color: white;
+}
+
+main section:target:nth-of-type(2) {
+  transition: 2s;
+  background-color: white;
+  background-image: radial-gradient(red 15%, transparent 16%),
+    radial-gradient(red 15%, transparent 16%);
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+  animation: swipe 2s forwards;
+  top: -100%;
+}
+
+main section:target:nth-of-type(3) {
+  background-color: darkred;
+}
+
+main section:target:nth-of-type(4) {
+  background-color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 2s;
+}
+
+main section:nth-of-type(4) p {
+  background-color: white;
+  width: 20%;
+  height: 20%;
+}
+
+main section:nth-of-type(4) p:hover {
+  background-color: green;
+}
+
+/* Location */
+
+main section:nth-of-type(5) div {
+  background: red;
+  background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+}
+
+main section:nth-of-type(5) div li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.75);
+  animation: animate 25s linear infinite;
+  bottom: -150px;
+}
+
+main section:nth-of-type(5) div li:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+main section:nth-of-type(5) div li:nth-child(2) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+main section:nth-of-type(5) div li:nth-child(3) {
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+
+main section:nth-of-type(5) div li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+main section:nth-of-type(5) div li:nth-child(5) {
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+main section:nth-of-type(5) div li:nth-child(6) {
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+
+main section:nth-of-type(5) div li:nth-child(7) {
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+
+main section:nth-of-type(5) div li:nth-child(8) {
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+main section:nth-of-type(5) div li:nth-child(9) {
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+
+main section:nth-of-type(5) div li:nth-child(10) {
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+/* Keyframes */
+
+/*Location background*/
+@keyframes animate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+
+/*Menu swipe / polkadot*/
+@keyframes swipe {
+  from {
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+  }
+  to {
+    top: 0;
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+  }
+}
+
+/*
+
+Is there a better way to do #center? Maybe just #?
+How to reset back to normal?
+
+Mega cursor?
+Halftone effect: https://codepen.io/coreh/pen/LQJBLa
+Pop-art radial background: https://codepen.io/alimbaronia/pen/wNGZOb
+layering gradients?: http://thenewcode.com/307/Pop-Art-Web-Page-Backgrounds
+
+*/
