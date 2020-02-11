@@ -24,81 +24,6 @@ ul {
   animation: cursor 1s infinite;
 }
 
-@keyframes cursor {
-  0% {
-    cursor: url(../img/cursor/cursor1.png) 65 65, auto;
-  }
-  4% {
-    cursor: url(../img/cursor/cursor2.png) 65 65, auto;
-  }
-  8% {
-    cursor: url(../img/cursor/cursor3.png) 65 65, auto;
-  }
-  13% {
-    cursor: url(../img/cursor/cursor4.png) 65 65, auto;
-  }
-  17% {
-    cursor: url(../img/cursor/cursor5.png) 65 65, auto;
-  }
-  21% {
-    cursor: url(../img/cursor/cursor6.png) 65 65, auto;
-  }
-  26% {
-    cursor: url(../img/cursor/cursor7.png) 65 65, auto;
-  }
-  30% {
-    cursor: url(../img/cursor/cursor8.png) 65 65, auto;
-  }
-  34% {
-    cursor: url(../img/cursor/cursor9.png) 65 65, auto;
-  }
-  39% {
-    cursor: url(../img/cursor/cursor10.png) 65 65, auto;
-  }
-  43% {
-    cursor: url(../img/cursor/cursor11.png) 65 65, auto;
-  }
-  47% {
-    cursor: url(../img/cursor/cursor12.png) 65 65, auto;
-  }
-  52% {
-    cursor: url(../img/cursor/cursor13.png) 65 65, auto;
-  }
-  56% {
-    cursor: url(../img/cursor/cursor14.png) 65 65, auto;
-  }
-  60% {
-    cursor: url(../img/cursor/cursor15.png) 65 65, auto;
-  }
-  65% {
-    cursor: url(../img/cursor/cursor16.png) 65 65, auto;
-  }
-  69% {
-    cursor: url(../img/cursor/cursor17.png) 65 65, auto;
-  }
-  73% {
-    cursor: url(../img/cursor/cursor18.png) 65 65, auto;
-  }
-  78% {
-    cursor: url(../img/cursor/cursor19.png) 65 65, auto;
-  }
-  82% {
-    cursor: url(../img/cursor/cursor20.png) 65 65, auto;
-  }
-  86% {
-    cursor: url(../img/cursor/cursor21.png) 65 65, auto;
-  }
-  91% {
-    cursor: url(../img/cursor/cursor22.png) 65 65, auto;
-  }
-  95% {
-    cursor: url(../img/cursor/cursor23.png) 65 65, auto;
-  }
-  100% {
-    cursor: url(../img/cursor/cursor24.png) 65 65, auto;
-  }
-}
-
 main {
   display: flex;
   justify-content: center;
@@ -109,7 +34,7 @@ main {
 
 nav {
   position: absolute;
-  display: flex;
+  display: inline-block;
   justify-content: center;
   align-items: center;
   align-self: center;
@@ -117,35 +42,55 @@ nav {
   transition: 2s;
 }
 
-nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+svg circle {
+  fill: white;
+  stroke: white;
+  opacity: 0.75;
+  stroke-width: 0;
 }
 
-nav li:last-of-type,
-nav li:last-of-type a {
-  display: flex;
-  width: 100%;
-  height: 100%;
+svg text {
+  stroke: coral;
+  fill: coral;
 }
 
-main section ~ nav li:last-child a {
-  width: 100%;
-  height: 100%;
+nav svg > ellipse:first-child {
+  display: flex;
   visibility: visible;
-  display: flex;
-  height: 50px;
-  width: 50px;
-  background-color: #bbb;
-  border-radius: 50%;
-  left: calc(50% - 25px);
-  top: calc(50% - 25px);
-  position: absolute;
+  opacity: 0.75;
+  fill: none;
+  stroke-width: 25;
+  stroke: white;
 }
 
 main section:target ~ nav {
   transition: 2s;
+}
+
+nav svg a ellipse {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+main section:nth-of-type(2):target ~ nav svg > ellipse {
+  stroke: coral;
+}
+main section:nth-of-type(2):target ~ nav svg > circle {
+  fill: coral;
+}
+
+main section:nth-of-type(2):target ~ nav svg text {
+  stroke: white;
+  fill: white;
+}
+
+main section:nth-of-type(2):target ~ nav svg ellipse,
+main section:nth-of-type(3):target ~ nav svg ellipse,
+main section:nth-of-type(4):target ~ nav svg ellipse,
+main section:nth-of-type(5):target ~ nav svg ellipse {
+  display: flex;
+  visibility: visible;
 }
 
 main section:nth-of-type(1):target ~ nav {
@@ -153,16 +98,16 @@ main section:nth-of-type(1):target ~ nav {
   margin-right: 50%;
 }
 main section:nth-of-type(2):target ~ nav {
-  margin-top: 50%;
+  margin-top: 50vh;
 }
 main section:nth-of-type(3):target ~ nav {
-  margin-right: 100%;
+  margin-left: 50vw;
 }
 main section:nth-of-type(4):target ~ nav {
-  margin-left: 100%;
+  margin-left: -50vw;
 }
 main section:nth-of-type(5):target ~ nav {
-  margin-bottom: 50%;
+  margin-top: -50vh;
 }
 
 /* Standard section stuff  */
@@ -181,23 +126,55 @@ section:target {
   position: absolute;
 }
 
+/*make index.html visible even though it cant be the target*/
 main section:first-child:not(:target) {
   visibility: visible;
   display: flex;
 }
 
-/* First section */
+/* Home */
 
 main section:nth-of-type(1) {
+  position: absolute;
+  background-color: coral;
+  overflow: hidden;
   transition: 2s;
-  background-color: white;
+}
+main section:nth-of-type(1)::before {
+  opacity: 1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  animation: scanner 5s alternate linear infinite;
 }
 
-main section:target:nth-of-type(2) {
-  background-color: white;
+main section:target ~ nav {
+  background-color: none;
+  background: none;
+  padding: inherit;
+  transition: margin 2s;
+}
+main section:not(target) ~ nav {
+  background-color: coral;
+  padding: 100%;
+  transition: margin 2s;
 }
 
+/* Menu */
 main section:target:nth-of-type(2) {
+  display: flex;
+  align-content: center;
+  justify-content: center;
   transition: 2s;
   background-color: white;
   background-image: radial-gradient(coral 15%, transparent 16%),
@@ -208,12 +185,91 @@ main section:target:nth-of-type(2) {
   top: -100%;
 }
 
+main section:target:nth-of-type(2) h1 {
+  position: absolute;
+  margin: 0 auto;
+  margin-top: 2.5%;
+  font-size: 10rem;
+  color: coral;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.5rem;
+  -webkit-text-stroke-color: coral;
+}
+
+main section:nth-of-type(2) > div {
+  display: grid;
+  width: 50%;
+  height: 50%;
+  align-self: center;
+  padding: 1rem;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  border-radius: 2rem;
+}
+
+main section:nth-of-type(2) div article div {
+  background: coral;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 100%;
+  transition-delay: 6000s;
+  box-shadow: 0 1px 8px coral;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+main section:nth-of-type(2) div article:hover {
+  opacity: 0;
+  transition: 2s;
+  transition-delay: 0.5s;
+}
+
+main section:nth-of-type(2) div article {
+  transition-delay: 6000s;
+  color: white;
+}
+
+main section:nth-of-type(2) div article:hover div {
+  box-shadow: none;
+  animation: shake 0.75s forwards;
+  animation-iteration-count: 5;
+  transition-delay: 1s;
+  transition: 1s;
+  background-color: white;
+}
+
+main section:nth-of-type(2) div article h2 {
+  font-size: 1rem;
+}
+
+/* Contact */
 main section:target:nth-of-type(3) {
   background-color: darkred;
 }
-
+/* story */
 main section:target:nth-of-type(4) {
-  background-color: green;
+  background-color: white;
+  background: linear-gradient(115deg, transparent 89%, #ff7f50cc 0) -128px -96px,
+    linear-gradient(-115deg, transparent 89%, #ff7f5044 0) 22px -96px,
+    linear-gradient(-115deg, #ff7f50dd 11%, transparent 0) -128px 54px,
+    linear-gradient(115deg, #ff7f5044 11%, transparent 0) 22px 54px,
+    linear-gradient(-25deg, #ff7f50bb 11%, transparent 0) -128px -22px,
+    linear-gradient(25deg, transparent 89%, #ff7f5099 0) -128px 128px,
+    linear-gradient(25deg, #ff7f50ee 11%, transparent 0) 22px -22px,
+    linear-gradient(-25deg, transparent 89%, #ff7f5088 0) 22px 128px,
+    linear-gradient(-25deg, #ff7f5022 11%, transparent 0) -53px -96px,
+    linear-gradient(25deg, transparent 89%, #ff7f50dd 0) -53px 54px,
+    linear-gradient(25deg, #ff7f5044 11%, transparent 0) 97px -96px,
+    linear-gradient(-25deg, transparent 89%, #ff7f50cc 0) 97px 54px,
+    linear-gradient(115deg, transparent 89%, #ff7f50aa 0) -53px -21px,
+    linear-gradient(-115deg, #ff7f50ee 11%, transparent 0) -53px 129px,
+    linear-gradient(-115deg, transparent 89%, #ff7f50bb 0) 97px -21px,
+    linear-gradient(115deg, #ff7f50dd 11%, transparent 0) 97px 129px;
+  background-size: 150px 150px;
+  background-repeat: repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -227,14 +283,38 @@ main section:nth-of-type(4) p {
 }
 
 main section:nth-of-type(4) p:hover {
-  background-color: green;
+  background: red;
 }
 
 /* Location */
+main section:nth-of-type(5)::before {
+  content: "";
+  width: 3rem;
+  height: 20rem;
+  top: -8rem;
+  left: 1rem;
+  border: 3rem solid white;
+  background: transparent;
+  position: absolute;
+  transform: rotateZ(45deg);
+  z-index: 1;
+}
+
+main section:nth-of-type(5)::after {
+  content: "";
+  width: 3rem;
+  height: 20rem;
+  bottom: -8rem;
+  right: 1rem;
+  border: 3rem solid white;
+  background: transparent;
+  position: absolute;
+  transform: rotateZ(45deg);
+  z-index: 1;
+}
 
 main section:nth-of-type(5) div {
-  background: #f7764f;
-  background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+  background: coral;
   width: 100%;
   height: 100vh;
   position: absolute;
@@ -328,6 +408,38 @@ main section:nth-of-type(5) div li:nth-child(10) {
 
 /* Keyframes */
 
+/*Shaking menu items*/
+@keyframes shake {
+  0% {
+    transform: translateX(-10px) translateY(10px);
+  }
+  20% {
+    transform: translateX(0px) translateY(0px);
+  }
+  40% {
+    transform: translateX(-10px) translateY(10px);
+  }
+  60% {
+    transform: translateX(0px) translateY(0px);
+  }
+  80% {
+    transform: translateX(-10px) translateY(10px);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+
+/*Index background*/
+@keyframes scanner {
+  from {
+    left: -170%;
+  }
+  to {
+    left: 150%;
+  }
+}
+
 /*Location background*/
 @keyframes animate {
   0% {
@@ -356,12 +468,83 @@ main section:nth-of-type(5) div li:nth-child(10) {
   }
 }
 
+@keyframes cursor {
+  0% {
+    cursor: url(../img/cursor/cursor1.png) 65 65, auto;
+  }
+  4% {
+    cursor: url(../img/cursor/cursor2.png) 65 65, auto;
+  }
+  8% {
+    cursor: url(../img/cursor/cursor3.png) 65 65, auto;
+  }
+  13% {
+    cursor: url(../img/cursor/cursor4.png) 65 65, auto;
+  }
+  17% {
+    cursor: url(../img/cursor/cursor5.png) 65 65, auto;
+  }
+  21% {
+    cursor: url(../img/cursor/cursor6.png) 65 65, auto;
+  }
+  26% {
+    cursor: url(../img/cursor/cursor7.png) 65 65, auto;
+  }
+  30% {
+    cursor: url(../img/cursor/cursor8.png) 65 65, auto;
+  }
+  34% {
+    cursor: url(../img/cursor/cursor9.png) 65 65, auto;
+  }
+  39% {
+    cursor: url(../img/cursor/cursor10.png) 65 65, auto;
+  }
+  43% {
+    cursor: url(../img/cursor/cursor11.png) 65 65, auto;
+  }
+  47% {
+    cursor: url(../img/cursor/cursor12.png) 65 65, auto;
+  }
+  52% {
+    cursor: url(../img/cursor/cursor13.png) 65 65, auto;
+  }
+  56% {
+    cursor: url(../img/cursor/cursor14.png) 65 65, auto;
+  }
+  60% {
+    cursor: url(../img/cursor/cursor15.png) 65 65, auto;
+  }
+  65% {
+    cursor: url(../img/cursor/cursor16.png) 65 65, auto;
+  }
+  69% {
+    cursor: url(../img/cursor/cursor17.png) 65 65, auto;
+  }
+  73% {
+    cursor: url(../img/cursor/cursor18.png) 65 65, auto;
+  }
+  78% {
+    cursor: url(../img/cursor/cursor19.png) 65 65, auto;
+  }
+  82% {
+    cursor: url(../img/cursor/cursor20.png) 65 65, auto;
+  }
+  86% {
+    cursor: url(../img/cursor/cursor21.png) 65 65, auto;
+  }
+  91% {
+    cursor: url(../img/cursor/cursor22.png) 65 65, auto;
+  }
+  95% {
+    cursor: url(../img/cursor/cursor23.png) 65 65, auto;
+  }
+  100% {
+    cursor: url(../img/cursor/cursor24.png) 65 65, auto;
+  }
+}
+
 /*
 
-Is there a better way to do #center? Maybe just #?
-How to reset back to normal?
-
-Mega cursor?
 Halftone effect: https://codepen.io/coreh/pen/LQJBLa
 Pop-art radial background: https://codepen.io/alimbaronia/pen/wNGZOb
 layering gradients?: http://thenewcode.com/307/Pop-Art-Web-Page-Backgrounds
