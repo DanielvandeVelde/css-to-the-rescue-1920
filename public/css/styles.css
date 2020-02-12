@@ -24,6 +24,11 @@ ul {
   animation: cursor 1s infinite;
 }
 
+::selection {
+  color: coral;
+  background-color: coral;
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -42,16 +47,22 @@ nav {
   transition: 2s;
 }
 
-svg circle {
+nav svg {
+  overflow: visible;
+}
+
+nav svg circle {
   fill: white;
   stroke: white;
   opacity: 0.75;
+  transition: stroke 2s, opacity 2s, fill 2s;
   stroke-width: 0;
 }
 
-svg text {
+nav svg text {
   stroke: coral;
   fill: coral;
+  transition: 2s;
 }
 
 nav svg > ellipse:first-child {
@@ -61,6 +72,7 @@ nav svg > ellipse:first-child {
   fill: none;
   stroke-width: 25;
   stroke: white;
+  transition: stroke 2s, opacity 2s;
 }
 
 main section:target ~ nav {
@@ -76,7 +88,7 @@ nav svg a ellipse {
 main section:nth-of-type(2):target ~ nav svg > ellipse {
   stroke: coral;
 }
-main section:nth-of-type(2):target ~ nav svg > circle {
+main section:nth-of-type(2):target ~ nav svg circle {
   fill: coral;
 }
 
@@ -170,7 +182,7 @@ main section:not(target) ~ nav {
   transition: margin 2s;
 }
 
-/* Menu */
+/* appetizers */
 main section:target:nth-of-type(2) {
   display: flex;
   align-content: center;
@@ -195,7 +207,6 @@ main section:target:nth-of-type(2) h1 {
   -webkit-text-stroke-width: 0.5rem;
   -webkit-text-stroke-color: coral;
 }
-
 main section:nth-of-type(2) > div {
   display: grid;
   width: 50%;
@@ -245,11 +256,11 @@ main section:nth-of-type(2) div article h2 {
   font-size: 1rem;
 }
 
-/* Contact */
+/* soups */
 main section:target:nth-of-type(3) {
   background-color: darkred;
 }
-/* story */
+/* entrees */
 main section:target:nth-of-type(4) {
   background-color: white;
   background: linear-gradient(115deg, transparent 89%, #ff7f50cc 0) -128px -96px,
@@ -286,8 +297,12 @@ main section:nth-of-type(4) p:hover {
   background: red;
 }
 
-/* Location */
-main section:nth-of-type(5)::before {
+/* Desserts */
+main section:nth-of-type(5):target article {
+  animation: fadeIn 2s ease-in linear;
+}
+
+main section:nth-of-type(5):target::before {
   content: "";
   width: 3rem;
   height: 20rem;
@@ -300,7 +315,7 @@ main section:nth-of-type(5)::before {
   z-index: 1;
 }
 
-main section:nth-of-type(5)::after {
+main section:nth-of-type(5):target::after {
   content: "";
   width: 3rem;
   height: 20rem;
@@ -313,14 +328,93 @@ main section:nth-of-type(5)::after {
   z-index: 1;
 }
 
-main section:nth-of-type(5) div {
+main section:nth-of-type(5):target article {
+  display: flex;
+  z-index: 1;
+  position: absolute;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  transition: margin-left 2s;
+  margin-left: calc(50vw - 25vh);
+  width: calc(50vh + 10px);
+  height: calc(50vh + 10px);
+}
+
+main section:nth-of-type(5):target article svg {
+  opacity: 0;
+  transition: 3s;
+  transition-delay: 1s;
+}
+
+main section:nth-of-type(5):target article svg {
+  width: calc(50vh + 10px);
+  height: calc(50vh + 10px);
+  opacity: 1;
+  transition: 3s;
+  transition-delay: 1s;
+}
+
+main section:nth-of-type(5):target article svg rect {
+  width: 50vh;
+  height: 50vh;
+  fill: white;
+  stroke: white;
+  rx: 0;
+  ry: 0;
+  x: 5px;
+  y: 5px;
+  transition: rx 2s, ry 2s, fill 5s, stroke 5s;
+}
+main section:nth-of-type(5):target article svg:hover {
+  transition: 1s;
+  overflow: visible;
+}
+
+main section:nth-of-type(5):target article svg g:first-of-type path {
+  display: flex;
+  visibility: visible;
+  fill: coral;
+  transform: translateX(calc(50% - 30px)) translateY(calc(50% - 32px));
+  opacity: 1;
+  transition-delay: 2s;
+  transition: opacity 3s;
+}
+
+main section:nth-of-type(5):target article svg:hover g:first-of-type path {
+  opacity: 0;
+  transition-delay: 2s;
+  transition: opacity 2s;
+}
+
+main section:nth-of-type(5):target article svg:hover rect {
+  rx: 50vh;
+  ry: 50vh;
+  transition: 3s;
+}
+
+main section:nth-of-type(5):target article svg text {
+  opacity: 0;
+  transition-delay: 5s;
+  transform: translateX(25%) translateY(50%);
+  transition: opacity 2s, transform 0s;
+}
+
+main section:nth-of-type(5):target article svg:hover text {
+  opacity: 1;
+  transition: 2s;
+  fill: coral;
+  stroke: coral;
+}
+
+main section:nth-of-type(5):target div {
   background: coral;
   width: 100%;
   height: 100vh;
   position: absolute;
 }
 
-main section:nth-of-type(5) div li {
+main section:nth-of-type(5):target div li {
   position: absolute;
   display: block;
   list-style: none;
@@ -407,8 +501,7 @@ main section:nth-of-type(5) div li:nth-child(10) {
 }
 
 /* Keyframes */
-
-/*Shaking menu items*/
+/*Shaking appetizers items*/
 @keyframes shake {
   0% {
     transform: translateX(-10px) translateY(10px);
@@ -440,7 +533,7 @@ main section:nth-of-type(5) div li:nth-child(10) {
   }
 }
 
-/*Location background*/
+/*desserts background*/
 @keyframes animate {
   0% {
     transform: translateY(0) rotate(0deg);
@@ -455,7 +548,17 @@ main section:nth-of-type(5) div li:nth-child(10) {
   }
 }
 
-/*Menu swipe / polkadot*/
+/*Fade in from left*/
+@keyframes fadeIn {
+  from {
+    margin-left: -50vw;
+  }
+  to {
+    margin-left: calc(50vw - 25vh);
+  }
+}
+
+/*appetizers swipe / polkadot*/
 @keyframes swipe {
   from {
     background-size: 20px 20px;
@@ -468,6 +571,7 @@ main section:nth-of-type(5) div li:nth-child(10) {
   }
 }
 
+/* Annoying cursor */
 @keyframes cursor {
   0% {
     cursor: url(../img/cursor/cursor1.png) 65 65, auto;
@@ -542,11 +646,15 @@ main section:nth-of-type(5) div li:nth-child(10) {
     cursor: url(../img/cursor/cursor24.png) 65 65, auto;
   }
 }
-
 /*
 
-Halftone effect: https://codepen.io/coreh/pen/LQJBLa
-Pop-art radial background: https://codepen.io/alimbaronia/pen/wNGZOb
-layering gradients?: http://thenewcode.com/307/Pop-Art-Web-Page-Backgrounds
+SVG + animations?
+  filter and gaussian blur inside svg
+Cut-outs?
+Text stuff
+scrollbars!
+text along path?
+text along shape?
+sound?
 
 */

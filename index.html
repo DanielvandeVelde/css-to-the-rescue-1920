@@ -14,8 +14,8 @@
   <body>
     <main>
       <section><div></div></section>
-      <section id="menu">
-        <h1>Menu</h1>
+      <section id="appetizers">
+        <h1>Appetizers</h1>
         <div>
           <article>
             <div>
@@ -77,12 +77,54 @@
           </article>
         </div>
       </section>
-      <section id="contact">
-        <article><p>I am the contact</p></article>
+      <section id="soups">
+        <article><p>I am the soups</p></article>
       </section>
-      <section id="story"><p>I am the story</p></section>
-      <section id="locations">
-        <article><p>I am the location</p></article>
+      <section id="entrees"><p>I am the entrees</p></section>
+      <section id="desserts">
+        <article>
+          <svg>
+            <rect
+              id="round-rectangle"
+              rx="0"
+              ry="0"
+              width="30"
+              height="30"
+              stroke="transparent"
+              fill="transparent"
+              stroke-width="5"
+            />
+            <g>
+              <path
+                d="M63.072,44.10758a1.25378,1.25378,0,0,0-1.6084-.73535,4.38054,4.38054,0,0,1-3.95117-.168c-4.18848-2.46875-5.69532-12.49707-6.3379-16.77929l-.14648-.96583c-.94141-6.05761-2.68262-13.70214-7.833-19.08886A16.55257,16.55257,0,0,0,24.64132,2.75211,15.03658,15.03658,0,0,0,20.74484,5.425a17.81776,17.81776,0,0,0-5.373,13.29785c.0166.84765.041,1.69629.06445,2.54394l.00782.2461a1.24869,1.24869,0,0,0,1.248,1.21484c.0127,0,.02442,0,.03614-.001a1.24868,1.24868,0,0,0,1.21386-1.28418l-.00683-.24707c-.02344-.83984-.04785-1.68066-.06348-2.51953A15.31009,15.31009,0,0,1,22.46554,7.23942a12.50341,12.50341,0,0,1,3.24707-2.22754A13.98457,13.98457,0,0,1,41.38839,8.09782c4.669,4.88379,6.28418,12.04882,7.169,17.74609l.14453.95215c.81348,5.41308,2.32617,15.48828,7.541,18.5625a6.3601,6.3601,0,0,0,3.27637.90137,8.0858,8.0858,0,0,0,2.81738-.54395A1.25179,1.25179,0,0,0,63.072,44.10758Z"
+              />
+              <path
+                d="M29.49874,33.30387c-.55371-6.29-7.57325-8.293-13.40234-8.07324-9.40918.332-11.751,4.57324-12.05371,8.02637-.00488.042-.00488.042-1.1084,15.96289a13.91885,13.91885,0,1,0,27.67285.05078S29.50753,33.424,29.49874,33.30387ZM25.27706,58.37321A11.42027,11.42027,0,0,1,5.42355,49.4445S6.5173,33.68082,6.528,33.52164c.11914-1.35253.48047-5.46875,9.65625-5.793.10352-.00391.28516-.00782.53027-.00782,2.251,0,9.81836.4043,10.294,5.80176h.001c.02929.44141.19238,2.78418,1.10839,15.97266A11.43653,11.43653,0,0,1,25.27706,58.37321Z"
+              />
+              <path
+                d="M16.96359,31.881H16.573a4.324,4.324,0,0,0-4.31933,4.31934V42.7902A4.324,4.324,0,0,0,16.573,47.10954h.39063a4.32383,4.32383,0,0,0,4.31836-4.31934V36.20036A4.32383,4.32383,0,0,0,16.96359,31.881ZM18.78195,42.7902a1.82089,1.82089,0,0,1-1.81836,1.81934H16.573a1.82172,1.82172,0,0,1-1.81933-1.81934V36.20036A1.82172,1.82172,0,0,1,16.573,34.381h.39063a1.82089,1.82089,0,0,1,1.81836,1.81934Z"
+              />
+              <animateMotion dur="2.5s" repeatCount="indefinite">
+                <mpath xlink:href="#hoverPath"></mpath>
+              </animateMotion>
+            </g>
+            <g>
+              <path
+                d="
+        M 0, 0
+        m -75, 0
+        a 75,75 0 1,0 150,0
+        a 75,75 0 1,0 -150,0
+    "
+                opacity="0"
+                id="hoverPath"
+              />
+            </g>
+            <text fill="transparent" stroke="transparent">
+              Hier komt denk ik het toetje dan maar
+            </text>
+          </svg>
+        </article>
         <div>
           <ul>
             <li></li>
@@ -101,15 +143,213 @@
       <nav>
         <svg viewBox="0 0 390 190" width="385" height="185">
           <ellipse cx="195" cy="95" rx="180" ry="80" />
-          <circle cx="195" cy="95" r="65" />
-          <a href="#menu"><text x="177" y="20">Menu</text></a>
-          <a href="#contact">
-            <text x="5" y="400" transform="rotate(90 175,240)">Contact</text>
+          <g>
+            <circle cx="195" cy="95" r="65" fill="white">
+              <animate
+                id="first"
+                begin="click"
+                attributeName="cy"
+                additive="replace"
+                to="50"
+                dur="0.5s"
+                fill="freeze"
+              />
+              <animate
+                begin="click"
+                attributeName="cx"
+                additive="replace"
+                to="215"
+                dur="0.5s"
+                fill="freeze"
+              />
+              <animate
+                begin="first.end"
+                attributeName="cy"
+                additive="replace"
+                to="-100000"
+                dur="0.01s"
+                fill="freeze"
+              />
+              <animate
+                id="eight"
+                begin="seventh.end"
+                attributeName="cx"
+                additive="replace"
+                to="195"
+                dur="0.001s"
+                fill="freeze"
+              />
+              <animate
+                begin="seventh.end"
+                attributeName="cy"
+                additive="replace"
+                to="95"
+                dur="4s"
+                fill="freeze"
+              />
+            </circle>
+            <circle cx="-100000" cy="-100" r="65" fill="red;">
+              <animate
+                begin="first.end"
+                attributeName="cx"
+                additive="replace"
+                to="215"
+                dur="0.01s"
+                fill="freeze"
+              />
+              <animate
+                begin="first.end"
+                attributeName="cy"
+                additive="replace"
+                to="50"
+                dur="0.01s"
+                fill="freeze"
+              />
+              <animate
+                begin="first.end"
+                attributeName="cx"
+                additive="replace"
+                to="255"
+                dur="1s"
+                fill="freeze"
+              />
+              <animate
+                id="second"
+                begin="first.end"
+                attributeName="cy"
+                additive="replace"
+                to="250"
+                dur="0.75s"
+                fill="freeze"
+              />
+              <animate
+                id="third"
+                begin="second.end"
+                attributeName="cx"
+                additive="replace"
+                to="275"
+                dur="0.25s"
+                fill="freeze"
+              />
+              <animate
+                begin="second.end"
+                attributeName="cy"
+                additive="replace"
+                to="225"
+                dur="0.25s"
+                fill="freeze"
+              />
+              <animate
+                id="fourth"
+                begin="third.end"
+                attributeName="cx"
+                additive="replace"
+                to="300"
+                dur="0.25s"
+                fill="freeze"
+              />
+              <animate
+                begin="third.end"
+                attributeName="cy"
+                additive="replace"
+                to="250"
+                dur="0.25s"
+                fill="freeze"
+              />
+              <animate
+                id="fifth"
+                begin="fourth.end"
+                attributeName="cx"
+                additive="replace"
+                to="325"
+                dur="0.25s"
+                fill="freeze"
+              />
+              <animate
+                begin="fourth.end"
+                attributeName="cy"
+                additive="replace"
+                to="240"
+                dur="0.25s"
+                fill="freeze"
+              />
+              <animate
+                id="sixth"
+                begin="fifth.end"
+                attributeName="cx"
+                additive="replace"
+                to="500"
+                dur="2s"
+                fill="freeze"
+              />
+              <animate
+                begin="fifth.end"
+                attributeName="cy"
+                additive="replace"
+                to="250"
+                dur="0.25s"
+                fill="freeze"
+              />
+              <animate
+                id="seventh"
+                begin="sixth.end"
+                attributeName="cx"
+                additive="replace"
+                to="500"
+                dur="5s"
+                fill="freeze"
+              />
+              <animate
+                begin="sixth.end"
+                attributeName="opacity"
+                additive="replace"
+                to="0"
+                dur="5s"
+                fill="freeze"
+              />
+              <animate
+                begin="sixth.end"
+                attributeName="cy"
+                additive="replace"
+                to="250"
+                dur="5s"
+                fill="freeze"
+              />
+              <animate
+                id="ninth"
+                begin="eight.end"
+                attributeName="cx"
+                additive="replace"
+                to="-100000"
+                dur="0.01s"
+                fill="freeze"
+              />
+              <animate
+                begin="eight.end"
+                attributeName="opacity"
+                additive="replace"
+                to="1"
+                dur="0.01s"
+                fill="freeze"
+              />
+              <animate
+                begin="eight.end"
+                attributeName="cy"
+                additive="replace"
+                to="-100000"
+                dur="0.01s"
+                fill="freeze"
+              />
+            </circle>
+          </g>
+          <a href="#appetizers"><text x="160" y="20">Appetizers</text></a>
+          <a href="#soups">
+            <text x="8" y="400" transform="rotate(90 175,240)">Soups</text>
           </a>
-          <a href="#story">
-            <text x="515" y="150" transform="rotate(-90 425,200)">Story</text>
+          <a href="#entrees">
+            <text x="508" y="150" transform="rotate(-90 425,200)">Entrees</text>
           </a>
-          <a href="#locations"><text x="167" y="180">Location</text></a>
+          <a href="#desserts"><text x="167" y="180">Desserts</text></a>
           <a href="#"><ellipse cx="195" cy="95" rx="195" ry="95" /></a>
         </svg>
       </nav>
