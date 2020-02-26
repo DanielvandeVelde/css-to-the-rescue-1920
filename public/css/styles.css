@@ -20,6 +20,11 @@ ul {
 
 /* Actually doing stuff */
 
+@font-face {
+  font-family: "ransom";
+  src: url("../font/rans.ttf");
+}
+
 * {
   animation: cursor 1s infinite;
 }
@@ -257,9 +262,164 @@ main section:nth-of-type(2) div article h2 {
 }
 
 /* soups */
-main section:target:nth-of-type(3) {
-  background-color: darkred;
+main section:target:nth-of-type(3):hover article::after {
+  animation-play-state: paused;
+  visibility: hidden;
 }
+
+main section:target:nth-of-type(3) article::after {
+  font-family: "ransom";
+  visibility: visible;
+  position: absolute;
+  content: "Tomato";
+  display: flex;
+  margin: 34vh 0 0 34vw;
+  text-align: center;
+  color: white;
+  width: 34vw;
+  height: 34vh;
+  font-size: 16vh;
+  letter-spacing: 1.75em;
+  animation: 10s bouncer infinite ease-in-out alternate;
+  animation-play-state: running;
+}
+
+main section:target:nth-of-type(3) article {
+  perspective: 18em;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ff7f50;
+  position: relative;
+  animation: camTarget 5s infinite ease-in-out, camFocus 1.3s infinite alternate;
+}
+
+main section:target:nth-of-type(3) article div {
+  position: absolute;
+  background-image: -webkit-gradient(
+      linear,
+      0 100%,
+      100% 0,
+      color-stop(0.25, #fff),
+      color-stop(0.25, transparent)
+    ),
+    -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, #fff), color-stop(0.25, transparent)),
+    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.75, transparent), color-stop(0.75, #fff)),
+    -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.75, transparent), color-stop(0.75, #fff));
+  background-size: 1em 1em;
+  background-position: 0 0, 3em 0, 3em -3.25em, 0px 3.25em;
+}
+
+main section:target:nth-of-type(3) article div:nth-of-type(5) {
+  background-color: #ff7f50;
+  bottom: 0;
+  transform-origin: center bottom;
+  transform: rotateX(90deg);
+  transition: bottom 5s;
+  transition-timing-function: ease-in;
+  height: 37.5em;
+  width: 100vw;
+}
+
+main section:target:nth-of-type(3) article div:nth-of-type(5):hover {
+  transition: 1s;
+  bottom: -50vh;
+}
+
+main section:target:nth-of-type(3) article div:nth-of-type(2) {
+  background-color: #ff7f50;
+  top: 0;
+  transform-origin: center top;
+  transform: rotateX(-90deg);
+  transition: top 5s;
+  transition-timing-function: ease-in;
+  height: 37.5em;
+  width: 100vw;
+}
+
+main section:target:nth-of-type(3) article div:nth-of-type(2):hover {
+  transition: 1s;
+  top: -50vh;
+}
+
+main section:target:nth-of-type(3) article div:nth-of-type(3) {
+  background-color: #ff7f50;
+  left: 0;
+  transform-origin: left center;
+  transform: rotateY(90deg);
+  height: 100vh;
+  width: 37.5em;
+  transition: left 5s;
+  transition-timing-function: ease-in;
+}
+
+main section:target:nth-of-type(3) article div:nth-of-type(3):hover {
+  transition: 1s;
+  left: -50vw;
+}
+
+main section:target:nth-of-type(3) article div:nth-of-type(4) {
+  background-color: #ff7f50;
+  right: 0;
+  transform-origin: right center;
+  transform: rotateY(-90deg);
+  height: 100vh;
+  width: 37.5em;
+  transition: right 5s;
+  transition-timing-function: ease-in;
+}
+
+main section:target:nth-of-type(3) article div:nth-of-type(4):hover {
+  transition: 1s;
+  right: -50vw;
+}
+
+main section:target:nth-of-type(3) article div:first-of-type {
+  height: 100vh;
+  width: 100vw;
+  background-color: #ff7f50;
+  transform: translateZ(-37.5em);
+}
+
+main section:target:nth-of-type(3) article header h1 {
+  margin: 0;
+  position: absolute;
+  color: #ff7f50;
+  letter-spacing: 0.5em;
+  font-size: 16vh;
+  height: 20vh;
+  width: 75vw;
+  text-align: center;
+  transform: translateZ(-18.75em) skewY(-12deg);
+  /*scaleY(1.4) rotate(30deg)*/
+  background-color: white;
+  text-shadow: 0.5em 0.5em 0px #ff7f50, -0.5em -0.5em 0px #ff7f50cc,
+    0.25em 0.25em 0px #ff7f50cc, -0.25em -0.25em 0px #ff7f50cc, 0 0 2em #ff7f50;
+}
+
+main section:target:nth-of-type(3) article header h1:nth-child(1) {
+  width: 50vw;
+  transform-origin: left center;
+  transform: translateZ(-600px) rotateY(-30deg) scaleY(1.4);
+  background-color: white;
+}
+
+main section:target:nth-of-type(3) article header h1:nth-child(2) {
+  transform: translateZ(-250px) skewY(-6deg) scaleY(1.4);
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  margin-left: -5em;
+  margin-top: -10vh;
+}
+
+main section:target:nth-of-type(3) article header h1:nth-child(3) {
+  width: 35vw;
+  right: 5vw;
+  bottom: 2vw;
+  transform-origin: right center;
+  transform: rotateY(-40deg) scaleY(1.4);
+}
+
 /* entrees */
 main section:target:nth-of-type(4) {
   background-color: white;
@@ -568,6 +728,74 @@ main section:nth-of-type(5) div li:nth-child(10) {
     top: 0;
     background-size: 50px 50px;
     background-position: 0 0, 25px 25px;
+  }
+}
+
+/*Soup perspective*/
+@keyframes camTarget {
+  0% {
+    perspective-origin: 50vw 40vh;
+  }
+  25% {
+    perspective-origin: 40vw 50vh;
+  }
+  50% {
+    perspective-origin: 50vw 60vh;
+  }
+  75% {
+    perspective-origin: 60vw 50vh;
+  }
+  100% {
+    perspective-origin: 50vw 40vh;
+  }
+}
+
+@keyframes camFocus {
+  0% {
+    perspective: 19em;
+  }
+  50% {
+    perspective: 22em;
+  }
+  100% {
+    perspective: 19em;
+  }
+}
+
+/*Soup letter bounce*/
+@keyframes bouncer {
+  0% {
+    margin: 0vh 0 0 100vw;
+  }
+  10% {
+    margin-top: 84vh;
+  }
+  20% {
+    margin-top: 0vh;
+  }
+  30% {
+    margin-top: 84vh;
+  }
+  40% {
+    margin-top: 0vh;
+  }
+  50% {
+    margin-top: 84vh;
+  }
+  60% {
+    margin-top: 0vh;
+  }
+  70% {
+    margin-top: 84vh;
+  }
+  80% {
+    margin-top: 0vh;
+  }
+  90% {
+    margin-top: 84vh;
+  }
+  100% {
+    margin: 0vh 0 0 -200vh;
   }
 }
 
