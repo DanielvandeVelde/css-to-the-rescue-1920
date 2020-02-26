@@ -20,11 +20,65 @@ ul {
 
 /* Actually doing stuff */
 /* regular dark selector would be @media (prefers-color-scheme: dark) */
-#dark {
+body > input {
+  visibility: hidden;
+  display: none;
+}
+
+body > label {
+  position: absolute;
+  display: block;
+  padding: 0.25em 0.25em 0.25em 1.75em;
+  background-color: #ff7f50;
+  z-index: 99;
+}
+
+body > label::before,
+body > label::after {
+  position: absolute;
+  content: "";
+  display: inline-block;
+}
+
+body > label::before {
+  height: 1em;
+  width: 1em;
+  border: 1px solid;
+  left: 3px;
+  top: 3px;
+}
+
+body > label::after {
+  height: 5px;
+  width: 9px;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  transform: rotate(-45deg);
+  left: 7px;
+  top: 7px;
+}
+
+body > input[type="checkbox"] + label::after {
+  content: none;
+}
+
+body > input[type="checkbox"] + label {
+  color: white;
+}
+
+body > input[type="checkbox"]:checked + label {
+  color: black;
+}
+
+body > input[type="checkbox"]:checked + label::after {
+  content: "";
+}
+
+body > input:checked ~ main {
   --secondary-color: #000;
 }
 
-#dark main section:nth-of-type(1)::before {
+body > input:checked ~ main section:nth-of-type(1)::before {
   background: linear-gradient(
     90deg,
     rgba(0, 0, 0, 0) 50%,
@@ -33,46 +87,46 @@ ul {
   );
 }
 
-#dark main section:nth-of-type(5):target div li {
+body > input:checked ~ main section:nth-of-type(5):target div li {
   background: rgba(0, 0, 0, 0.75);
 }
 
-#dark main section:target:nth-of-type(3) article::after {
+body > input:checked ~ main section:target:nth-of-type(3) article::after {
   color: black;
 }
 
-#dark main section:nth-of-type(5):target div li {
+body > input:checked ~ main section:nth-of-type(5):target div li {
   background: rgba(0, 0, 0, 0.75);
 }
 
-#dark main section:nth-of-type(2):target article {
+body > input:checked ~ main section:nth-of-type(2):target article {
   transition: 1s;
   color: black;
 }
 
+/*Regular old light theme*/
 :root {
   --secondary-color: #fff;
+}
 
-  main section:nth-of-type(1)::before {
-    background: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0) 50%,
-      rgba(0, 0, 0, 0.5) 60%,
-      rgba(0, 0, 0, 0) 70%
-    );
+main section:nth-of-type(1)::before {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.5) 60%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+main section:nth-of-type(5):target div li {
+  background: rgba(0, 0, 0, 0.75);
+}
 
-    main section:nth-of-type(5):target div li {
-      background: rgba(0, 0, 0, 0.75);
-    }
+main section:target:nth-of-type(3) article::after {
+  color: black;
+}
 
-    main section:target:nth-of-type(3) article::after {
-      color: black;
-    }
-  }
-
-  main section:nth-of-type(5):target div li {
-    background: rgba(0, 0, 0, 0.75);
-  }
+main section:nth-of-type(5):target div li {
+  background: rgba(0, 0, 0, 0.75);
 }
 
 @font-face {
@@ -146,7 +200,7 @@ main section:target ~ nav::after {
 
 main section ~ nav::after {
   visibility: visible;
-  content: "Press a key to switch between light and dark mode. \a The eye above is your menu. \a Good luck.";
+  content: "Press the button top left to switch between light- and dark-mode. \a You can also use your browser settings to do so. \a The eye above is your menu. \a Good luck.";
   color: var(--secondary-color);
   white-space: pre;
   text-align: center;
@@ -156,20 +210,8 @@ main section ~ nav::after {
   z-index: 99;
   transition: 2s;
   margin-top: 3em;
-  padding-left: 2rem;
+  margin-left: -0.5rem;
 }
-
-/*
-visibility: visible;
-content: "Press a key to switch between light and dark mode.";
-color: var(--secondary-color);
-position: absolute;
-top: 10px;
-left: 10px;
-display: block;
-z-index: 99;
-transition: 2s;
- */
 
 nav svg a ellipse {
   display: none;
@@ -319,7 +361,8 @@ main section:nth-of-type(2) div article div {
   border-radius: 0.5rem;
   width: 100%;
   height: 100%;
-  transition-delay: 6000s;
+  color: var(--secondary-color);
+  transition-delay: opacity 1s linear 6000s, color 3s linear 1s;
   box-shadow: 0 1px 8px #ff7f50;
   display: flex;
   text-align: center;
