@@ -187,10 +187,6 @@ main section:target:nth-of-type(3) article::after {
   color: black;
 }
 
-main section:nth-of-type(5):target div li {
-  background: rgba(0, 0, 0, 0.75);
-}
-
 /* Navbar */
 
 nav {
@@ -278,10 +274,7 @@ main section:nth-of-type(3):target ~ nav svg text {
   fill: var(--secondary-color);
 }
 
-main section:nth-of-type(2):target ~ nav svg ellipse,
-main section:nth-of-type(3):target ~ nav svg ellipse,
-main section:nth-of-type(4):target ~ nav svg ellipse,
-main section:nth-of-type(5):target ~ nav svg ellipse {
+main section:target ~ nav svg ellipse {
   display: flex;
   visibility: visible;
 }
