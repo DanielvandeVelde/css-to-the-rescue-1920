@@ -69,7 +69,7 @@ body > input[type="checkbox"] + label {
 
 /* Dark mode easter egg */
 
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) {
   html::before {
     content: "";
     background-color: black;
@@ -79,7 +79,7 @@ body > input[type="checkbox"] + label {
     width: 100%;
     height: 100%;
   }
-
+*/
   html::after {
     content: "I'm sleeping! \a Please come back later. \a \a \a \a \a Turn off your darkmode...";
     white-space: pre;
@@ -157,6 +157,30 @@ main section:target:nth-of-type(3) article > marquee {
   --secondary-color: #fff;
 }
 
+@font-face {
+  font-family: "ransom";
+  src: url("../font/rans.ttf");
+}
+
+* {
+  animation: cursor 1s infinite;
+}
+
+::selection {
+  color: #ff7f50;
+  background-color: #ff7f50;
+}
+
+body {
+  position: relative;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 main section:nth-of-type(1)::before {
   background: linear-gradient(
     90deg,
@@ -175,26 +199,6 @@ main section:target:nth-of-type(3) article::after {
 
 main section:nth-of-type(5):target div li {
   background: rgba(0, 0, 0, 0.75);
-}
-
-@font-face {
-  font-family: "ransom";
-  src: url("../font/rans.ttf");
-}
-
-* {
-  animation: cursor 1s infinite;
-}
-
-::selection {
-  color: #ff7f50;
-  background-color: #ff7f50;
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  align-content: center;
 }
 
 /* Navbar */
