@@ -625,10 +625,12 @@ main section:nth-of-type(4) p {
   background-color: var(--secondary-color);
   width: 20%;
   height: 20%;
+  color: coral;
 }
 
 main section:nth-of-type(4) p:hover {
   background: coral;
+  color: var(--secondary-color);
 }
 
 /* Desserts */
