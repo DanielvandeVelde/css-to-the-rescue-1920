@@ -79,7 +79,6 @@ body > input[type="checkbox"] + label {
     width: 100%;
     height: 100%;
   }
-*/
   html::after {
     content: "I'm sleeping! \a Please come back later. \a \a \a \a \a Turn off your darkmode...";
     white-space: pre;
@@ -99,7 +98,7 @@ body > input[type="checkbox"] + label {
     background-repeat: no-repeat;
   }
 }
-
+*/
 /* Dark mode toggle */
 body > input[type="checkbox"]:checked + label {
   color: black;
