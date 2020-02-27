@@ -1,6 +1,6 @@
 # CSS to the rescue
 
-<kbd>![The soups part of the restaurant menu website](https://raw.githubusercontent.com/DanielvandeVelde/web-app-from-scratch-1920/master/public/img/readme.png "The soups part of the restaurant menu website")</kbd>
+<kbd>![The soups part of the restaurant menu website](https://raw.githubusercontent.com/DanielvandeVelde/css-to-the-rescue-1920/master/public/img/readme.png "The soups part of the restaurant menu website")</kbd>
 
 ## Demo
 
