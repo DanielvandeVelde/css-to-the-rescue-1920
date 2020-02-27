@@ -19,7 +19,8 @@ ul {
 }
 
 /* Actually doing stuff */
-/* regular dark selector would be @media (prefers-color-scheme: dark) */
+
+/*Dark mode toggle*/
 body > input {
   visibility: hidden;
   display: none;
@@ -30,7 +31,7 @@ body > label {
   display: block;
   padding: 0.25em 0.25em 0.25em 1.75em;
   background-color: #ff7f50;
-  z-index: 99;
+  z-index: 97;
 }
 
 body > label::before,
@@ -66,6 +67,40 @@ body > input[type="checkbox"] + label {
   color: white;
 }
 
+/* Dark mode easter egg */
+
+@media (prefers-color-scheme: dark) {
+  html::before {
+    content: "";
+    background-color: black;
+    display: flex;
+    z-index: 98;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  html::after {
+    content: "I'm sleeping! \a Please come back later. \a \a \a \a \a Turn off your darkmode...";
+    white-space: pre;
+    position: absolute;
+    display: flex;
+    z-index: 99;
+    text-align: center;
+    color: coral;
+    padding: 45vh 47vw;
+    width: 20vw;
+    height: 10vh;
+    top: 0;
+    left: 0;
+    padding-bottom: 10em;
+    background-image: url(../img/sleep.svg);
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+}
+
+/* Dark mode toggle */
 body > input[type="checkbox"]:checked + label {
   color: black;
 }
@@ -102,6 +137,19 @@ body > input:checked ~ main section:nth-of-type(5):target div li {
 body > input:checked ~ main section:nth-of-type(2):target article {
   transition: 1s;
   color: black;
+}
+body > input:checked ~ main section:target:nth-of-type(3) article > marquee {
+  color: coral;
+  mix-blend-mode: difference;
+}
+
+body > input:checked ~ main section:target:nth-of-type(3) article > marquee {
+  filter: none;
+}
+
+main section:target:nth-of-type(3) article > marquee {
+  color: coral;
+  filter: blur(4px);
 }
 
 /*Regular old light theme*/
@@ -159,6 +207,7 @@ nav {
   align-self: center;
   margin: 0;
   transition: 2s;
+  z-index: 5;
 }
 
 nav svg {
@@ -200,17 +249,18 @@ main section:target ~ nav::after {
 
 main section ~ nav::after {
   visibility: visible;
-  content: "Press the button top left to switch between light- and dark-mode. \a You can also use your browser settings to do so. \a The eye above is your menu. \a Good luck.";
+  content: "Press the button top left to switch between light- and dark-mode. \a The eye above is your menu. \a Good luck.";
   color: var(--secondary-color);
   white-space: pre;
   text-align: center;
   line-height: 2em;
   position: absolute;
   display: block;
-  z-index: 99;
+  z-index: 97;
   transition: 2s;
   margin-top: 3em;
   margin-left: -0.5rem;
+  transition: color 2s;
 }
 
 nav svg a ellipse {
@@ -322,8 +372,9 @@ main section:not(target) ~ nav {
 /* appetizers */
 main section:target:nth-of-type(2) {
   display: flex;
+  flex-direction: column;
   align-content: center;
-  justify-content: center;
+  justify-content: flex-start;
   transition: 2s;
   background-color: var(--secondary-color);
   background-image: radial-gradient(#ff7f50 15%, transparent 16%),
@@ -335,10 +386,8 @@ main section:target:nth-of-type(2) {
 }
 
 main section:target:nth-of-type(2) h1 {
-  position: absolute;
   margin: 0 auto;
-  margin-top: 2.5%;
-  font-size: 10rem;
+  font-size: 20vw;
   color: #ff7f50;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 0.5rem;
@@ -346,7 +395,7 @@ main section:target:nth-of-type(2) h1 {
 }
 main section:nth-of-type(2) > div {
   display: grid;
-  width: 50%;
+  width: 100%;
   height: 50%;
   align-self: center;
   padding: 1rem;
@@ -395,26 +444,25 @@ main section:nth-of-type(2) div article h2 {
 }
 
 /* soups */
-main section:target:nth-of-type(3):hover article::after {
-  animation-play-state: paused;
+main section:target:nth-of-type(3):hover article > marquee {
   visibility: hidden;
 }
 
-main section:target:nth-of-type(3) article::after {
+main section:target:nth-of-type(3) article > marquee {
   font-family: "ransom";
   visibility: visible;
   position: absolute;
-  content: "Tomato";
-  display: flex;
-  margin: 34vh 0 0 34vw;
-  text-align: center;
+  display: block;
   color: var(--secondary-color);
-  width: 34vw;
-  height: 34vh;
-  font-size: 16vh;
-  letter-spacing: 1.75em;
-  animation: 10s bouncer infinite ease-in-out alternate;
-  animation-play-state: running;
+  font-size: 8vw;
+  letter-spacing: 1em;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+}
+
+main section:target:nth-of-type(3) article marquee marquee {
+  width: 100vw;
 }
 
 main section:target:nth-of-type(3) article {
@@ -438,7 +486,7 @@ main section:target:nth-of-type(3) article div {
     -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, var(--secondary-color)), color-stop(0.25, transparent)),
     -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.75, transparent), color-stop(0.75, var(--secondary-color))),
     -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.75, transparent), color-stop(0.75, var(--secondary-color)));
-  background-size: 1em 1em;
+  animation: party-mode 5s infinite ease-in-out alternate;
   background-position: 0 0, 3em 0, 3em -3.25em, 0px 3.25em;
 }
 
@@ -863,6 +911,15 @@ main section:nth-of-type(5) div li:nth-child(10) {
   }
 }
 
+@keyframes party-mode {
+  0% {
+    background-size: 1em 1em;
+  }
+  100% {
+    background-size: 5em 2em;
+  }
+}
+
 /*Soup perspective*/
 @keyframes camTarget {
   0% {
@@ -891,43 +948,6 @@ main section:nth-of-type(5) div li:nth-child(10) {
   }
   100% {
     perspective: 19em;
-  }
-}
-
-/*Soup letter bounce*/
-@keyframes bouncer {
-  0% {
-    margin: 0vh 0 0 100vw;
-  }
-  10% {
-    margin-top: 84vh;
-  }
-  20% {
-    margin-top: 0vh;
-  }
-  30% {
-    margin-top: 84vh;
-  }
-  40% {
-    margin-top: 0vh;
-  }
-  50% {
-    margin-top: 84vh;
-  }
-  60% {
-    margin-top: 0vh;
-  }
-  70% {
-    margin-top: 84vh;
-  }
-  80% {
-    margin-top: 0vh;
-  }
-  90% {
-    margin-top: 84vh;
-  }
-  100% {
-    margin: 0vh 0 0 -200vh;
   }
 }
 
