@@ -97,7 +97,7 @@ body > input[type="checkbox"] + label {
     background-repeat: no-repeat;
   }
 }
-/* Dark mode toggle */
+/* When dark-mode is toggled*/
 body > input[type="checkbox"]:checked + label {
   color: black;
 }
@@ -296,7 +296,7 @@ main section:nth-of-type(5):target ~ nav {
   margin-top: -50vh;
 }
 
-/* Standard section stuff  */
+/* Standard section stuff (inheritance) */
 
 section {
   visibility: hidden;
@@ -312,7 +312,7 @@ section:target {
   position: absolute;
 }
 
-/*make index.html visible even though it cant be the target*/
+/*make index.html visible even though it cant be the target (just in case)*/
 main section:first-child:not(:target) {
   visibility: visible;
   display: flex;
@@ -1015,19 +1015,3 @@ main section:nth-of-type(5) div li:nth-child(10) {
     cursor: url(../img/cursor/cursor24.png) 65 65, auto;
   }
 }
-
-/*
-More darkmode stuff?
-
-
-SVG + animations?
-  (eigen) filter and gaussian blur inside svg
-Cut-outs?
-scrollbars!
-text along path?
-text along shape?
-sound?
-checkboxes
-3D transform (perspective)
-css-tricks almanac
-*/
