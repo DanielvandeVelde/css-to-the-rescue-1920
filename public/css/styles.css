@@ -67,18 +67,6 @@ body > input[type="checkbox"] + label {
   color: white;
 }
 
-@media (min-width: 600px) and (prefers-color-scheme: dark) {
-  html::before {
-    content: "";
-    background-color: black;
-    display: flex;
-    z-index: 98;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  
-  
 /* When dark-mode is toggled*/
 body > input[type="checkbox"]:checked + label {
   color: black;
